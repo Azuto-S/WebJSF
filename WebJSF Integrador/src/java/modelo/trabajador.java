@@ -1,10 +1,15 @@
 
 package modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class trabajador {
+@Entity
+@Table(name = "trabajador")
+public class trabajador implements Serializable {
     @Id
     @Column(name = "idtra")
     private int dni;

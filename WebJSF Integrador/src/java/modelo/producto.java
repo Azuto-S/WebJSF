@@ -1,24 +1,33 @@
 
 package modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-
-public class producto {
+@Entity
+@Table(name = "producto")
+public class producto implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
+   
    @Column(name = "id_subcategoria")
    private int subcategoria;
+   
    @Column(name = "nombrepro")
    private String nombre;
+   
    @Column(name = "preciopro")
    private double precio;
+   
    @Column(name = "stockpro")
    private int stock;
+   
    @Column(name = "nombre_sub")
    private String nom_sub;
    
