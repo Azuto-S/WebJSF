@@ -27,8 +27,8 @@ public class cliente_DAO implements int_cliente{
     public boolean agregar(cliente c) {
         
         try {
-            String sql="insert into cliente (dni,nombre,ape_paterno,ape_materno,"
-                + "sexo,telefono,correo,contrasena,id_distrito,direccion,referencia) values("+c.getDni()+
+            String sql="insert into cliente (dnicli,nombrecli,ape_paternocli,ape_maternocli,"
+                + "sexocli,telefonocli,correocli,contrasenacli,id_distritocli,direccioncli,referenciacli) values("+c.getDni()+
                 ",'"+c.getNombre()+"','"+c.getApe_paterno()+"','"+c.getApe_materno()+"','"+
                 c.getSexo()+"','"+c.getTelefono()+"','"+c.getCorreo()+"','"+c.getContrasena()+"',"+
                 c.getDistrito()+",'"+c.getDireccion()+"','"+c.getReferencia()+"')";
@@ -49,16 +49,16 @@ public class cliente_DAO implements int_cliente{
       
         try {
             String sql="update cliente set "
-                    +"nombre='"+c.getNombre()+"', "
-                    +"ape_paterno='"+c.getApe_paterno()+"', "
-                    +"ape_materno='"+c.getApe_materno()+"', "
-                    +"sexo='"+c.getSexo()+"', "
-                    +"telefono='"+c.getTelefono()+"', "
-                    +"correo='"+c.getCorreo()+"', "
-                    +"contrasena='"+c.getContrasena()+"', "
-                    +"id_distrito="+c.getDistrito()+", "
-                    +"direccion='"+c.getDireccion()+"', "
-                    +"referencia='"+c.getReferencia()+"' where dni="+c.getDni();
+                    +"nombrecli='"+c.getNombre()+"', "
+                    +"ape_paternocli='"+c.getApe_paterno()+"', "
+                    +"ape_maternocli='"+c.getApe_materno()+"', "
+                    +"sexocli='"+c.getSexo()+"', "
+                    +"telefonocli='"+c.getTelefono()+"', "
+                    +"correocli='"+c.getCorreo()+"', "
+                    +"contrasenacli='"+c.getContrasena()+"', "
+                    +"id_distritocli="+c.getDistrito()+", "
+                    +"direccioncli='"+c.getDireccion()+"', "
+                    +"referenciacli='"+c.getReferencia()+"' where dni="+c.getDni();
             con= cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.executeUpdate();
@@ -85,25 +85,25 @@ public class cliente_DAO implements int_cliente{
     @Override
     public cliente listarUnCliente(int dni) {
         try {
-            String sql="select dni,nombre,ape_paterno,ape_materno,"
-                + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
-                 +  "where cliente.id_distrito = distrito.id and cliente.dni="+dni;
+            String sql="select dnicli,nombrecli,ape_paternocli,ape_maternocli,"
+                + "sexocli,telefonocli,correocli,contrasenacli,nom_discli,direccioncli,referenciacli from cliente, distrito "
+                 +  "where cliente.id_distritocli = distrito.id and cliente.dnicli="+dni;
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 c= new cliente();
-                c.setDni(rs.getInt("dni"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApe_materno(rs.getString("ape_paterno"));
-                c.setApe_paterno(rs.getString("ape_materno"));
-                c.setSexo(rs.getString("sexo"));
-                c.setTelefono(rs.getString("telefono"));
-                c.setCorreo(rs.getString("correo"));
-                c.setContrasena(rs.getString("contrasena"));
-                c.setNom_dis(rs.getString("nom_dis"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setReferencia(rs.getString("referencia"));
+                c.setDni(rs.getInt("dnicli"));
+                c.setNombre(rs.getString("nombrecli"));
+                c.setApe_materno(rs.getString("ape_paternocli"));
+                c.setApe_paterno(rs.getString("ape_maternocli"));
+                c.setSexo(rs.getString("sexocli"));
+                c.setTelefono(rs.getString("telefonocli"));
+                c.setCorreo(rs.getString("correocli"));
+                c.setContrasena(rs.getString("contrasenacli"));
+                c.setNom_dis(rs.getString("nom_discli"));
+                c.setDireccion(rs.getString("direccioncli"));
+                c.setReferencia(rs.getString("referenciacli"));
             }
             
         } catch (SQLException ex) {
@@ -115,25 +115,25 @@ public class cliente_DAO implements int_cliente{
     @Override
     public ArrayList<cliente> listarTodosClientes() {
         try {
-            String sql="select dni,nombre,ape_paterno,ape_materno,"
-                + "sexo,telefono,correo,contrasena,nom_dis,direccion,referencia from cliente, distrito "
-                + " where cliente.id_distrito = distrito.id";
+            String sql="select dnicli,nombrecli,ape_paternocli,ape_maternocli,"
+                + "sexocli,telefonocli,correocli,contrasenacli,nom_discli,direccioncli,referenciacli from cliente, distrito "
+                + " where cliente.id_distritocli = distrito.id";
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 c=new cliente();
-                c.setDni(rs.getInt("dni"));
-                c.setNombre(rs.getString("nombre"));
-                c.setApe_materno(rs.getString("ape_paterno"));
-                c.setApe_paterno(rs.getString("ape_materno"));
-                c.setSexo(rs.getString("sexo"));
-                c.setTelefono(rs.getString("telefono"));
-                c.setCorreo(rs.getString("correo"));
-                c.setContrasena(rs.getString("contrasena"));
-                c.setNom_dis(rs.getString("nom_dis"));
-                c.setDireccion(rs.getString("direccion"));
-                c.setReferencia(rs.getString("referencia"));
+                c.setDni(rs.getInt("dnicli"));
+                c.setNombre(rs.getString("nombrecli"));
+                c.setApe_materno(rs.getString("ape_paternocli"));
+                c.setApe_paterno(rs.getString("ape_maternocli"));
+                c.setSexo(rs.getString("sexocli"));
+                c.setTelefono(rs.getString("telefonocli"));
+                c.setCorreo(rs.getString("correocli"));
+                c.setContrasena(rs.getString("contrasenacli"));
+                c.setNom_dis(rs.getString("nom_discli"));
+                c.setDireccion(rs.getString("direccioncli"));
+                c.setReferencia(rs.getString("referenciacli"));
                 lista.add(c);
             }
         } catch (SQLException ex) {

@@ -1,24 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
-/**
- *
- * @author jose2
- */
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class trabajador {
+    @Id
+    @Column(name = "idtra")
     private int dni;
+    
+    @Column(name = "id_tipotrabajador")
     private int tipo;
+    
+    @Column(name = "nombretra")
     private String nombre;
+    
+    @Column(name = "ape_paternotra")
     private String ape_paterno;
+    
+    @Column(name = "ape_maternotra")
     private String ape_materno;
+    
+    @Column(name = "sexotra")
     private String sexo;
+    
+    @Column(name = "telefonotra")
     private String telefono;
+    
+    @Column(name = "correotra")
     private String correo;
+    
+    @Column(name = "contrasenotra")
     private String contrasena;
+    
+    @Column(name = "direcciontra")
     private String direccion;
 
     
@@ -101,6 +116,36 @@ public class trabajador {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.dni;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final trabajador other = (trabajador) obj;
+        if (this.dni != other.dni) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "trabajador{" + "dni=" + dni + '}';
     }
 
    
