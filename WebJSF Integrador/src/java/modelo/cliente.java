@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -35,8 +37,9 @@ public class cliente implements Serializable{
     @Column(name = "contrasenacli")
     private String contrasena;
     
-    @Column(name = "id_distritocli")
-    private int distrito;
+    @ManyToOne
+    @JoinColumn(name = "id_distrito")
+    private distrito dis;
     
     @Column(name = "direccioncli")
     private String direccion;
@@ -44,17 +47,6 @@ public class cliente implements Serializable{
     @Column(name = "referenciacli")
     private String referencia;
     
-    @Column(name = "nom_dis")
-    String nom_dis;
-
-    public String getNom_dis() {
-        return nom_dis;
-    }
-
-    public void setNom_dis(String nom_dis) {
-        this.nom_dis = nom_dis;
-    }
-
     
     public int getDni() {
         return dni;
@@ -120,14 +112,6 @@ public class cliente implements Serializable{
         this.contrasena = contrasena;
     }
 
-    public int getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(int distrito) {
-        this.distrito = distrito;
-    }
-
     public String getDireccion() {
         return direccion;
     }
@@ -150,7 +134,13 @@ public class cliente implements Serializable{
         hash = 59 * hash + this.dni;
         return hash;
     }
+    public distrito getDis() {
+        return dis;
+    }
 
+    public void setDis(distrito dis) {
+        this.dis = dis;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -173,6 +163,8 @@ public class cliente implements Serializable{
     public String toString() {
         return "cliente{" + "dni=" + dni + '}';
     }
+
+    
     
     
     

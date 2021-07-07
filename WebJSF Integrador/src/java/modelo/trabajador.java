@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +16,9 @@ public class trabajador implements Serializable {
     @Column(name = "idtra")
     private int dni;
     
-    @Column(name = "id_tipotrabajador")
-    private int tipo;
+    @ManyToOne
+    @JoinColumn(name = "idtipotra")
+    private tipotrabajador tipotra;
     
     @Column(name = "nombretra")
     private String nombre;
@@ -115,12 +118,12 @@ public class trabajador implements Serializable {
         this.direccion = direccion;
     }
 
-    public int getTipo() {
-        return tipo;
+    public tipotrabajador getTipotra() {
+        return tipotra;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setTipotra(tipotrabajador tipotra) {
+        this.tipotra = tipotra;
     }
 
     @Override
@@ -152,6 +155,8 @@ public class trabajador implements Serializable {
     public String toString() {
         return "trabajador{" + "dni=" + dni + '}';
     }
+
+    
 
    
     

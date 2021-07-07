@@ -47,7 +47,13 @@ public class subcategoria_producto implements Serializable {
         this.id = id;
     }
 
-    
+    public categoria_producto getCatpro() {
+        return catpro;
+    }
+
+    public void setCatpro(categoria_producto catpro) {
+        this.catpro = catpro;
+    }
 
     @Override
     public int hashCode() {
@@ -79,13 +85,7 @@ public class subcategoria_producto implements Serializable {
         return "subcategoria_producto{" + "id=" + id + '}';
     }
 
-    public categoria_producto getCatpro() {
-        return catpro;
-    }
-
-    public void setCatpro(categoria_producto catpro) {
-        this.catpro = catpro;
-    }
+    
     
     
     

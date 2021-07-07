@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,9 @@ public class producto implements Serializable {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
    
-   @Column(name = "id_subcategoria")
-   private int subcategoria;
+   @ManyToOne
+   @JoinColumn(name = "id_sub")
+   private subcategoria_producto subcat;
    
    @Column(name = "nombrepro")
    private String nombre;
@@ -27,9 +30,7 @@ public class producto implements Serializable {
    
    @Column(name = "stockpro")
    private int stock;
-   
-   @Column(name = "nombre_sub")
-   private String nom_sub;
+  
    
     public int getId() {
         return id;
@@ -39,13 +40,14 @@ public class producto implements Serializable {
         this.id = id;
     }
 
-    public int getSubcategoria() {
-        return subcategoria;
+    public subcategoria_producto getSubcat() {
+        return subcat;
     }
 
-    public void setSubcategoria(int subcategoria) {
-        this.subcategoria = subcategoria;
+    public void setSubcat(subcategoria_producto subcat) {
+        this.subcat = subcat;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -71,13 +73,7 @@ public class producto implements Serializable {
         this.stock = stock;
     }
 
-    public String getNom_sub() {
-        return nom_sub;
-    }
-
-    public void setNom_sub(String nom_sub) {
-        this.nom_sub = nom_sub;
-    }
+    
 
     @Override
     public int hashCode() {
