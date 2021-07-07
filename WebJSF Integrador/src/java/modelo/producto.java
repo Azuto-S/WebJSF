@@ -19,7 +19,7 @@ public class producto implements Serializable {
    private int id;
    
    @ManyToOne
-   @JoinColumn(name = "id_sub")
+   @JoinColumn(name = "id_subcategoria")
    private subcategoria_producto subcat;
    
    @Column(name = "nombrepro")

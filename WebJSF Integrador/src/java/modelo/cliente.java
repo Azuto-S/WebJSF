@@ -38,7 +38,7 @@ public class cliente implements Serializable{
     private String contrasena;
     
     @ManyToOne
-    @JoinColumn(name = "id_distrito")
+    @JoinColumn(name = "id_distritocli")
     private distrito dis;
     
     @Column(name = "direccioncli")

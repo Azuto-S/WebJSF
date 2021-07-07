@@ -20,26 +20,26 @@ public class pedido implements Serializable{
     private int id;
     
     @ManyToOne
-    @JoinColumn(name = "idestadope")
+    @JoinColumn(name = "id_estadopedi")
     private estadopedido esta;
     
     @ManyToOne
-    @JoinColumn(name = "idpg")
+    @JoinColumn(name = "id_tipopagopedo")
     private tipopago tipopa;
     
     @ManyToOne
-    @JoinColumn(name = "idcatpago")
+    @JoinColumn(name = "id_catpagopedi")
     private categoriapago catpago;
     
     @ManyToOne
-    @JoinColumn(name = "dnicli")
+    @JoinColumn(name = "id_clientepedi")
     private cliente cli;
     
     @ManyToOne
-    @JoinColumn(name = "iddetallepe")
+    @JoinColumn(name = "id_detallespedi")
     private detallepedido deta;
     
-    @Column(name = "fecha")
+    @Column(name = "fechapedi")
     private Date fechape;
 
     public int getId() {

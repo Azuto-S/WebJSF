@@ -26,7 +26,7 @@ public class subcategoria_producto implements Serializable {
     private String nombre;
     
     @ManyToOne
-    @JoinColumn(name = "idcatpro")
+    @JoinColumn(name = "id_categoria")
     private categoria_producto catpro;
 
     

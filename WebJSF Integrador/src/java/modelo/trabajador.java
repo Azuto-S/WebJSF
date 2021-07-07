@@ -17,7 +17,7 @@ public class trabajador implements Serializable {
     private int dni;
     
     @ManyToOne
-    @JoinColumn(name = "idtipotra")
+    @JoinColumn(name = "id_tipotrabajador")
     private tipotrabajador tipotra;
     
     @Column(name = "nombretra")
