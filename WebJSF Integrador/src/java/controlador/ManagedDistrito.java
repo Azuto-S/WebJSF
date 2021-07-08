@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import modelo.distrito;
 
+
 @ManagedBean
 @SessionScoped
 public class ManagedDistrito {
@@ -18,11 +19,12 @@ public class ManagedDistrito {
     private distrito distri;
 
     public List<distrito> getListarDistrito() {
+        this.ListarDistrito = this.distritoFacade.findAll();
         return ListarDistrito;
     }
 
     public void setListarDistrito(List<distrito> ListarDistrito) {
-        this.ListarDistrito = this.distritoFacade.findAll();
+        
         this.ListarDistrito = ListarDistrito;
     }
 

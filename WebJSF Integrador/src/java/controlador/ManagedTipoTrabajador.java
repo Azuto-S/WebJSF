@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import modelo.tipotrabajador;
 
 
+
 @ManagedBean
 @SessionScoped
 public class ManagedTipoTrabajador {
@@ -19,11 +20,12 @@ public class ManagedTipoTrabajador {
     private tipotrabajador tipotra;
 
     public List<tipotrabajador> getListaTipoTrab() {
+        this.listaTipoTrab = this.tipotrabaFacade.findAll();
         return listaTipoTrab;
     }
 
     public void setListaTipoTrab(List<tipotrabajador> listaTipoTrab) {
-        this.listaTipoTrab = this.tipotrabaFacade.findAll();
+        
         this.listaTipoTrab = listaTipoTrab;
     }
 
